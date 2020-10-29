@@ -1,6 +1,6 @@
 // эти константы доступны из любого месть приложения
 const param = {
-    maxSpeed: 300,
+    maxSpeed: 270,
     minSpeed: 50,
     personSpeed: 9,
     soundConfig: {

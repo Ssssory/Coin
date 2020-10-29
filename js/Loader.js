@@ -25,7 +25,7 @@ class Loader extends Phaser.Scene {
 
         this.load.image("button", "./img/Button1.png");
 
-        this.load.audio("bzz", ["./audio/bzz.ogg"]);
+        this.load.audio("bzz", ["./audio/bzz.ogg", "./audio/bzz.mp3"]);
     }
 
     /**

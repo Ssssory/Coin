@@ -3,6 +3,15 @@ const param = {
     maxSpeed: 300,
     minSpeed: 50,
     personSpeed: 9,
+    soundConfig: {
+        mute: false,
+        volume: 0.25,
+        rate: 1,
+        detune: 0,
+        seek: 0,
+        loop: false,
+        delay: 0,
+    },
 };
 
 // базовая конфигурация

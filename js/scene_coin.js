@@ -13,6 +13,8 @@ class Coin extends Phaser.Scene {
         this.background.setOrigin(0, 0);
         this.background.scale = 0.5;
 
+        this.bzz = this.sound.add("bzz", param.soundConfig);
+
         // переменные сцены
         this.count = 0;
         this.round = 1;
@@ -104,7 +106,7 @@ class Coin extends Phaser.Scene {
      * Возвращают случайную позицию и случайную скорость
      */
     getRandomXPosition() {
-        return Phaser.Math.Between(0, this.game.config.width);
+        return Phaser.Math.Between(20, this.game.config.width - 20);
     }
 
     getRandomSpeed() {

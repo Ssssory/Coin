@@ -10,7 +10,7 @@ class BronzeCoin extends Phaser.GameObjects.Sprite {
      */
     constructor(scene) {
         let x = scene.getRandomXPosition();
-        let y = 5;
+        let y = 0;
         // родительский конструктор
         super(scene, x, y, "coin");
 
@@ -24,6 +24,16 @@ class BronzeCoin extends Phaser.GameObjects.Sprite {
         this.body.velocity.y = scene.getRandomSpeed();
         // активируем реакцию на клик мышью
         this.setInteractive();
+
+        this.setSize();
+    }
+
+    setSize() {
+        if (this.body.velocity.y < 100) {
+            this.setScale(0.6);
+        } else if (this.body.velocity.y >= 200) {
+            this.setScale(1.4);
+        }
     }
 
     /**

@@ -10,7 +10,7 @@ class BronzeCoin extends Phaser.GameObjects.Sprite {
      */
     constructor(scene) {
         let x = scene.getRandomXPosition();
-        let y = 50;
+        let y = 5;
         // родительский конструктор
         super(scene, x, y, "coin");
 
@@ -31,7 +31,7 @@ class BronzeCoin extends Phaser.GameObjects.Sprite {
      */
     update() {
         // если монета улетает за пределы высоты экрана, то игра заканчивается
-        if (this.y > this.scene.game.config.width) {
+        if (this.y > this.scene.game.config.height + 10) {
             // передаём итоговый показатель очков на финальный экран
             this.scene.scene.start("Game Over", { count: this.scene.count });
         }
@@ -59,6 +59,8 @@ class BronzeCoin extends Phaser.GameObjects.Sprite {
         this.removeInteractive();
         // включаем анимацию золотой монеты
         this.play("rotate_coin_gold");
+
+        this.scene.bzz.play();
         // прежде, чем мы удалим монету, необходимо проиграть анимацию
         this.once("animationcomplete", () => {
             this.destroy();

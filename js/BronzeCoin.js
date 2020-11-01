@@ -43,7 +43,7 @@ class BronzeCoin extends Phaser.GameObjects.Sprite {
         // если монета улетает за пределы высоты экрана, то игра заканчивается
         if (this.y > this.scene.game.config.height + 10) {
             // передаём итоговый показатель очков на финальный экран
-            this.scene.scene.start("Game Over", { count: this.scene.count });
+            this.scene.scene.start("Game Over", { count: state.score });
         }
     }
 

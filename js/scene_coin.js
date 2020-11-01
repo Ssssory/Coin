@@ -20,7 +20,7 @@ class Coin extends Phaser.Scene {
         this.round = 1;
 
         // надпись с очками
-        this.coinCount = this.add.text(30, 10, `Coins: ${this.count}`, {
+        this.coinCount = this.add.text(30, 10, `Score: ${state.score}`, {
             fontFamily: '"Sansita Swashed", cursive',
             fontSize: 20,
             color: "#555687",
@@ -91,13 +91,13 @@ class Coin extends Phaser.Scene {
      */
     destroyCoin(pointer, obj) {
         obj.destroyCoin();
-        this.count++;
-        this.coinCount.setText(`Coins: ${this.count}`);
+        state.addCoin();
+        this.coinCount.setText(`Score: ${state.score}`);
 
         // 4 элемента без учёта спрайта монеты
         if (this.children.length == 4) {
-            this.round += 1;
-            this.createBronzeCoin(this.round);
+            state.newLevel();
+            this.createBronzeCoin(state.level);
         }
     }
 

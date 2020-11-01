@@ -14,6 +14,8 @@ const param = {
     },
 };
 
+let state = new GameState();
+
 // базовая конфигурация
 const config = {
     width: 1000,

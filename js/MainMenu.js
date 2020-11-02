@@ -28,7 +28,58 @@ class MainMenu extends Phaser.Scene {
             // }),
         };
 
+        let bzz = this.sound.add("bzz", param.soundConfig);
+        this.bzz = bzz;
+
+        let bar = this.add.image(this.game.config.width / 2, 600, "load_bar");
+        bar.setScale(0.3, 0.1);
+
+        // let slider = this.add.image(350, 600, "loading");
+        // slider.setScale(0.01, 0.3);
+        let slider = this.add.image(350, 600, "button");
+        slider.setScale(0.2, 0.3);
+
+        slider
+            .setInteractive({ draggable: true })
+            .on("dragstart", function (pointer, dragX, dragY) {
+                // ...
+            })
+            .on("drag", (pointer, dragX, dragY) => {
+                // this.setPosition(dragX, dragY);
+                if (slider.x > 346 && slider.x < 654) {
+                    slider.x = dragX;
+                }
+
+                // console.log(this);
+            })
+            .on("dragend", function (pointer, dragX, dragY, dropped) {
+                // ...
+                if (slider.x < 350) {
+                    slider.x = 358;
+                }
+                if (slider.x > 650) {
+                    slider.x = 644;
+                }
+                bzz.play();
+            });
+
+        let mute = this.add.image(270, 600, "mute");
+        mute.setScale(0.5);
+        mute.setInteractive();
+        let sound = this.add.image(730, 600, "sound");
+        sound.setScale(0.5);
+        // sound.visible = false;
+
+        mute.on("pointerdown", () => {
+            this.toggleMute();
+        });
+
         this.buttons = buttons;
+    }
+
+    toggleMute() {
+        param.soundConfig.mute = !param.soundConfig.mute;
+        this.bzz.mute = !this.bzz.mute;
     }
 
     /**

@@ -66,12 +66,21 @@ class MainMenu extends Phaser.Scene {
         let mute = this.add.image(270, 600, "mute");
         mute.setScale(0.5);
         mute.setInteractive();
-        let sound = this.add.image(730, 600, "sound");
+        mute.visible = false;
+        let sound = this.add.image(270, 600, "sound");
         sound.setScale(0.5);
-        // sound.visible = false;
+        sound.setInteractive();
 
         mute.on("pointerdown", () => {
             this.toggleMute();
+            mute.visible = !mute.visible;
+            sound.visible = !sound.visible;
+        });
+
+        sound.on("pointerdown", () => {
+            this.toggleMute();
+            mute.visible = !mute.visible;
+            sound.visible = !sound.visible;
         });
 
         this.buttons = buttons;

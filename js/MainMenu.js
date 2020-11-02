@@ -36,12 +36,12 @@ class MainMenu extends Phaser.Scene {
 
         // let slider = this.add.image(350, 600, "loading");
         // slider.setScale(0.01, 0.3);
-        let slider = this.add.image(350, 600, "button");
+        let slider = this.add.image(536, 600, "button");
         slider.setScale(0.2, 0.3);
 
         slider
             .setInteractive({ draggable: true })
-            .on("dragstart", function (pointer, dragX, dragY) {
+            .on("dragstart", (pointer, dragX, dragY) => {
                 // ...
             })
             .on("drag", (pointer, dragX, dragY) => {
@@ -52,7 +52,7 @@ class MainMenu extends Phaser.Scene {
 
                 // console.log(this);
             })
-            .on("dragend", function (pointer, dragX, dragY, dropped) {
+            .on("dragend", (pointer, dragX, dragY, dropped) => {
                 // ...
                 if (slider.x < 350) {
                     slider.x = 358;
@@ -60,6 +60,7 @@ class MainMenu extends Phaser.Scene {
                 if (slider.x > 650) {
                     slider.x = 644;
                 }
+                this.volumeControle(slider.x);
                 bzz.play();
             });
 
@@ -121,5 +122,24 @@ class MainMenu extends Phaser.Scene {
         text.setOrigin(0.5, 0.5);
 
         return button;
+    }
+
+    volumeControle(x) {
+        const start = 346;
+        const end = 650;
+        const range = end - start;
+        const position = x - start;
+        const persent = (position / range) * 100;
+        const min = 0;
+        const max = 0.4;
+        const presentVolume = (max / 100) * persent;
+        console.log(
+            range,
+            position,
+            Math.round(persent),
+            parseFloat(presentVolume.toFixed(2))
+        );
+        param.soundConfig.volume = parseFloat(presentVolume.toFixed(2));
+        this.bzz.volume = parseFloat(presentVolume.toFixed(2));
     }
 }

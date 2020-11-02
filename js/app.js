@@ -24,7 +24,7 @@ const config = {
     physics: {
         default: "arcade",
     },
-    scene: [Loader, Coin, MainMenu, GameOver],
+    scene: [Loader, Coin, MainMenu, GameOver, Settings],
 };
 
 // инстанс приложения

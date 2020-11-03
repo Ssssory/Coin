@@ -13,17 +13,17 @@ class GameState {
         this.score = 0;
     }
 
-    addCoin() {
+    addCoin(fresh) {
         this.coin++;
-        this.sumScore();
+        this.sumScore(fresh);
     }
 
     newLevel() {
         this.level++;
     }
 
-    sumScore() {
-        let multiple = this.level * 10;
+    sumScore(fresh) {
+        let multiple = this.level * fresh;
         this.score += multiple;
     }
 }

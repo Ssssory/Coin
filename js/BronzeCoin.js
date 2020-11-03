@@ -25,6 +25,17 @@ class BronzeCoin extends Phaser.GameObjects.Sprite {
         // активируем реакцию на клик мышью
         this.setInteractive();
 
+        this.fresh = 10;
+
+        this.timer = this.scene.time.addEvent({
+            delay: 650,
+            callback: () => {
+                this.fresh--;
+            },
+            callbackScope: this,
+            repeat: 8,
+        });
+
         this.setSize();
     }
 
@@ -75,5 +86,9 @@ class BronzeCoin extends Phaser.GameObjects.Sprite {
         this.once("animationcomplete", () => {
             this.destroy();
         });
+    }
+
+    getFresh() {
+        return this.fresh;
     }
 }

@@ -90,8 +90,8 @@ class Coin extends Phaser.Scene {
      * метод только считает очки и создаёт новый уровень сложности
      */
     destroyCoin(pointer, obj) {
+        state.addCoin(obj.getFresh());
         obj.destroyCoin();
-        state.addCoin();
         this.coinCount.setText(`Score: ${state.score}`);
 
         // 4 элемента без учёта спрайта монеты

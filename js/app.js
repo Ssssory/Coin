@@ -5,7 +5,7 @@ const param = {
     personSpeed: 9,
     soundConfig: {
         mute: false,
-        volume: 0.25,
+        volume: 0.15,
         rate: 1,
         detune: 0,
         seek: 0,

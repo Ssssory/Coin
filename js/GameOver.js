@@ -20,7 +20,7 @@ class GameOver extends Phaser.Scene {
         this.add
             .text(
                 this.game.config.width / 2,
-                this.game.config.height / 2,
+                this.game.config.height / 2 - 100,
                 "Game Over",
                 {
                     fontFamily: '"Sansita Swashed", cursive',
@@ -32,7 +32,7 @@ class GameOver extends Phaser.Scene {
             this.add
                 .text(
                     this.game.config.width / 2,
-                    this.game.config.height / 2 + 100,
+                    this.game.config.height / 2,
                     "Total: " + this.count,
                     {
                         fontFamily: '"Sansita Swashed", cursive',
@@ -41,5 +41,17 @@ class GameOver extends Phaser.Scene {
                 )
                 .setOrigin(0.5, 0.5);
         }
+
+        this.add.image(this.game.config.width / 2, 600, "button");
+        let rest = this.add
+            .text(this.game.config.width / 2, 600, "Restart", {
+                fontFamily: '"Sansita Swashed", cursive',
+                fontSize: 26,
+            })
+            .setOrigin(0.5, 0.5);
+        rest.setInteractive();
+        rest.on("pointerdown", () => {
+            this.scene.start("play coin");
+        });
     }
 }

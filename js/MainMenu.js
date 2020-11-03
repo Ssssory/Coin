@@ -11,20 +11,39 @@ class MainMenu extends Phaser.Scene {
         this.background = this.add.image(0, 0, "background");
         this.background.setOrigin(0, 0);
 
+        this.add
+            .text(this.game.config.width / 2, 50, "Coins", {
+                fontFamily: '"Sansita Swashed", cursive',
+                fontSize: 50,
+            })
+            .setOrigin(0.5, 0.5);
+
+        this.add
+            .text(
+                this.game.config.width / 2,
+                750,
+                "Click on coins as soon as possible. Each round is more expensive, but speed has a price, as does time.",
+                {
+                    fontFamily: '"Sansita Swashed", cursive',
+                    fontSize: 20,
+                }
+            )
+            .setOrigin(0.5, 0.5);
+
         let buttons = {
             start: this.createButton(
                 // this.game.config.height / 2,
-                150,
+                200,
                 "start",
                 () => {
                     // запускаем основную сцену
                     this.scene.start("play coin");
                 }
             ),
-            option: this.createButton(350, "option", () => {
+            option: this.createButton(400, "option", () => {
                 this.scene.start("settings");
             }),
-            option: this.createButton(550, "top", () => {
+            option: this.createButton(600, "top", () => {
                 console.log("top");
             }),
             // end: this.createButton(550, "end", () => {

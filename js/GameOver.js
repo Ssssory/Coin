@@ -51,6 +51,7 @@ class GameOver extends Phaser.Scene {
             .setOrigin(0.5, 0.5);
         rest.setInteractive();
         rest.on("pointerdown", () => {
+            state.restart();
             this.scene.start("play coin");
         });
     }

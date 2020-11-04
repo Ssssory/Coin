@@ -26,4 +26,10 @@ class GameState {
         let multiple = this.level * fresh;
         this.score += multiple;
     }
+
+    restart() {
+        this.level = 1;
+        this.coin = 0;
+        this.score = 0;
+    }
 }

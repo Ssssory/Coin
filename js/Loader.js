@@ -13,12 +13,20 @@ class Loader extends Phaser.Scene {
     preload() {
         this.load.image("background", "./img/bg_layer1.png");
         this.load.image("bushes", "./img/bg_layer2.png");
+
         this.load.image("coin", "./img/bronze_1.png");
         this.load.image("coin2", "./img/bronze_2.png");
         this.load.image("coin3", "./img/bronze_3.png");
         this.load.image("coin4", "./img/bronze_4.png");
         this.load.image("coin5", "./img/bronze_5.png");
         this.load.image("coin6", "./img/bronze_6.png");
+
+        this.load.image("silver_coin", "./img/silver_1.png");
+        this.load.image("silver_coin2", "./img/silver_2.png");
+        this.load.image("silver_coin3", "./img/silver_3.png");
+        this.load.image("silver_coin4", "./img/silver_4.png");
+        this.load.image("silver_coin5", "./img/silver_5.png");
+        this.load.image("silver_coin6", "./img/silver_6.png");
 
         this.load.image("gold", "./img/gold_1.png");
         this.load.image("bubble", "./img/bubble.png");

@@ -40,12 +40,29 @@ class Coin extends Phaser.Scene {
             frameRate: 12,
             repeat: -1,
         };
+
         this.anims.create(coin_anim_config);
 
         coin_anim_config.key = "rotate_coin_bronze2";
         coin_anim_config.frameRate = 6;
 
         this.anims.create(coin_anim_config);
+
+        // bonus
+        let silver_coin_anim_config = {
+            key: "rotate_coin_silver",
+            frames: [
+                { key: "silver_coin" },
+                { key: "silver_coin2" },
+                { key: "silver_coin3" },
+                { key: "silver_coin4" },
+                { key: "silver_coin5" },
+                { key: "silver_coin6" },
+            ],
+            frameRate: 12,
+            repeat: -1,
+        };
+        this.anims.create(silver_coin_anim_config);
 
         this.anims.create({
             key: "rotate_coin_gold",
@@ -97,6 +114,9 @@ class Coin extends Phaser.Scene {
         // 4 элемента без учёта спрайта монеты
         if (this.children.length == 4) {
             state.newLevel();
+            if (this.getRandomBonus()) {
+                new SilverCoin(this);
+            }
             this.createBronzeCoin(state.level);
         }
     }
@@ -111,5 +131,13 @@ class Coin extends Phaser.Scene {
 
     getRandomSpeed() {
         return Phaser.Math.Between(param.minSpeed, param.maxSpeed);
+    }
+
+    getRandomBonus() {
+        const flag = Phaser.Math.Between(1, 10);
+        if (flag == 5) {
+            return true;
+        }
+        return false;
     }
 }

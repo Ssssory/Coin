@@ -5,7 +5,7 @@ const param = {
     personSpeed: 9,
     soundConfig: {
         mute: false,
-        volume: 0.15,
+        volume: 0.05,
         rate: 1,
         detune: 0,
         seek: 0,
@@ -24,7 +24,7 @@ const config = {
     physics: {
         default: "arcade",
     },
-    scene: [Loader, Coin, MainMenu, GameOver, Settings],
+    scene: [Loader, Coin, MainMenu, GameOver, Settings, Top],
 };
 
 // инстанс приложения

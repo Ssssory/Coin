@@ -44,7 +44,7 @@ class MainMenu extends Phaser.Scene {
                 this.scene.start("settings");
             }),
             option: this.createButton(600, "top", () => {
-                console.log("top");
+                this.scene.start("top");
             }),
             // end: this.createButton(550, "end", () => {
             //     this.scene.start("Game Over");

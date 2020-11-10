@@ -35,41 +35,40 @@ class GameState {
 
     // db
 
-    getTop() {
-        return [
-            {
-                name: "Johan",
-                score: 5000,
-            },
-            {
-                name: "Sam",
-                score: 4000,
-            },
-            {
-                name: "Mike",
-                score: 1200,
-            },
-        ];
-    }
-
-    // async getTop() {
-    //     let data = new FormData();
-    //     data.append("route", "top");
-    //     return await fetch("/php/", {
-    //         method: "POST",
-    //         body: data,
-    //     })
-    //         .then((response) => response.json())
-    //         .then((res) => {
-    //             // console.log(res);
-    //             return res;
-    //         });
+    // getTop() {
+    //     return [
+    //         {
+    //             name: "Johan",
+    //             score: 5000,
+    //         },
+    //         {
+    //             name: "Sam",
+    //             score: 4000,
+    //         },
+    //         {
+    //             name: "Mike",
+    //             score: 1200,
+    //         },
+    //     ];
     // }
+
+    async getTop() {
+        let data = new FormData();
+        data.append("route", "top");
+        return await fetch("/php/", {
+            method: "POST",
+            body: data,
+        })
+            .then((response) => response.json())
+            .then((res) => {
+                console.log(res);
+                return res;
+            });
+    }
 
     async saveResult(person) {
         try {
             let data = new FormData();
-
             data.append("route", "new");
             data.append("name", person.name);
             data.append("score", person.score);
@@ -82,6 +81,7 @@ class GameState {
                 .then((response) => response.json())
                 .then((res) => {
                     console.log(res);
+                    return res;
                 });
         } catch (error) {
             console.log(error);

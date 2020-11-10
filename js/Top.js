@@ -11,8 +11,8 @@ class Top extends Phaser.Scene {
             fontSize: 40,
         });
 
-        this.add.image(this.game.config.width / 2, 700, "button");
-        let rest = this.add
+        let rest = this.add.image(this.game.config.width / 2, 700, "button");
+        this.add
             .text(this.game.config.width / 2, 700, "Back", {
                 fontFamily: '"Sansita Swashed", cursive',
                 fontSize: 26,

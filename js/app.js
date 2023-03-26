@@ -13,6 +13,12 @@ const param = {
         delay: 0,
     },
 };
+let locale = '';
+if (ysdk) {
+    locale = ysdk.environment.i18n.lang
+}else{
+    locale = 'en'
+}
 
 let state = new GameState();
 
